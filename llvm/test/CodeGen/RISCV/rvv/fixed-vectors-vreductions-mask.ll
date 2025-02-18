@@ -100,7 +100,6 @@ define zeroext i1 @vreduce_or_v2i1(<2 x i1> %v) {
 ; CHECK:       # %bb.0:
 ; CHECK-NEXT:    vsetivli zero, 2, e8, mf8, ta, ma
 ; CHECK-NEXT:    vcpop.m a0, v0
-; CHECK-NEXT:    snez a0, a0
 ; CHECK-NEXT:    ret
   %red = call i1 @llvm.vector.reduce.or.v2i1(<2 x i1> %v)
   ret i1 %red
@@ -113,7 +112,6 @@ define zeroext i1 @vreduce_xor_v2i1(<2 x i1> %v) {
 ; CHECK:       # %bb.0:
 ; CHECK-NEXT:    vsetivli zero, 2, e8, mf8, ta, ma
 ; CHECK-NEXT:    vcpop.m a0, v0
-; CHECK-NEXT:    andi a0, a0, 1
 ; CHECK-NEXT:    ret
   %red = call i1 @llvm.vector.reduce.xor.v2i1(<2 x i1> %v)
   ret i1 %red
@@ -140,7 +138,6 @@ define zeroext i1 @vreduce_umax_v2i1(<2 x i1> %v) {
 ; CHECK:       # %bb.0:
 ; CHECK-NEXT:    vsetivli zero, 2, e8, mf8, ta, ma
 ; CHECK-NEXT:    vcpop.m a0, v0
-; CHECK-NEXT:    snez a0, a0
 ; CHECK-NEXT:    ret
   %red = call i1 @llvm.vector.reduce.umax.v2i1(<2 x i1> %v)
   ret i1 %red
@@ -181,7 +178,6 @@ define zeroext i1 @vreduce_smin_v2i1(<2 x i1> %v) {
 ; CHECK:       # %bb.0:
 ; CHECK-NEXT:    vsetivli zero, 2, e8, mf8, ta, ma
 ; CHECK-NEXT:    vcpop.m a0, v0
-; CHECK-NEXT:    snez a0, a0
 ; CHECK-NEXT:    ret
   %red = call i1 @llvm.vector.reduce.smin.v2i1(<2 x i1> %v)
   ret i1 %red
@@ -691,7 +687,6 @@ define zeroext i1 @vreduce_add_v2i1(<2 x i1> %v) {
 ; CHECK:       # %bb.0:
 ; CHECK-NEXT:    vsetivli zero, 2, e8, mf8, ta, ma
 ; CHECK-NEXT:    vcpop.m a0, v0
-; CHECK-NEXT:    andi a0, a0, 1
 ; CHECK-NEXT:    ret
   %red = call i1 @llvm.vector.reduce.add.v2i1(<2 x i1> %v)
   ret i1 %red
